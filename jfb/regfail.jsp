@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>武汉市民警交流调配平台 | 注册失败</title>
+<title>平台 | 注册失败</title>
 <link href="resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="resources/bootstrap/css/datepicker.css" rel="stylesheet" type="text/css"/>
 <link href="resources/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -42,7 +42,7 @@ margin:10px 50px;
 </div>
 </div>
 <div class="footer">
-<p><a href="javascript:void(0);">武汉市民警交流调配平台</a> </p>
+<p><a href="javascript:void(0);">平台</a> </p>
 </div>
 </div>
 </body>
