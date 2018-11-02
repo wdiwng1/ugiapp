@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>上传主题</title>
+     <link href="css/share.css" rel="stylesheet">
+    <link href="css/Upload theme.css" rel="stylesheet">
+     <script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+    <!--头部-->
+    <!--头部-->
+    <div class="header">
+        <!--头部信息-->
+        <div class="headerName">上传主题</div>
+        <!--共用箭头-->
+        <div class="ReturnShareArrow" onclick="javascript:window.location.href='./index.html';">
+        	<a href="##" class="ShareArrow"><img src="images/ShareArrow_03.jpg"></a>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="main">
+        <div class="title">
+            <div class="vip" id="vip">你还不是vip会员,只能上传1张,vip可以上传3张</div>
+            <div class="zt" id="title">今日可以上传主题</div>
+        </div>
+        <div class="photo">
+            <div class="list" >
+                <div class="Lwrap addImg" vip="1">
+                    <div class="listL">
+                        <div class="Imgwrap"><img src="images/Uimg_03.png"></div>
+                    </div>
+                    <div class="click">点击照片选择</div>
+                </div>
+                <div class="listR"><img src="images/Uimg_07.jpg"></div>
+            </div>
+            <div class="list" >
+                <div class="Lwrap addImg" vip="0">
+                    <div class="listL">
+                        <div class="Imgwrap"><img src="images/Uimg_04.png"></div>
+                    </div>
+                    <div class="click">点击照片选择</div>
+                </div>
+                <div class="listR"><img src="images/Uimg_07.jpg"></div>
+            </div>
+            <div class="list" >
+                <div class="Lwrap addImg" vip="0">
+                    <div class="listL">
+                        <div class="Imgwrap"><img src="images/Uimg_04.png"></div>
+                    </div>
+                    <div class="click">点击照片选择</div>
+                </div>
+                <div class="listR"><img src="images/Uimg_07.jpg"></div>
+            </div>
+        </div>
+        <div class="upload">
+            <button class="SC" id="uploadBtn">上传</button>
+            <div class="wt"><span class="yd">上传时遇到问题，</span><span class="dj go" go="./services.html">请点击这里<img src="images/jt_03.jpg"></span></div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <div class="tabbar">
+            <div class="tabbarList"><img src="images/footer001.png"><span>首页</span></div>
+            <div class="tabbarList go" go="./share.html"><img src="images/footer09.png"><span>分享挖矿</span></div>
+            <div class="tabbarList go" go="./exchange.html"><img src="images/footer02.png"><span>兑换</span></div>
+            <div class="tabbarList go" go="./my.html"><img src="images/footer04.png"><span>我的</span></div>
+        </div>
+    </div>
+    
+    <!--模态层-->
+    <div class="modal hide" id="modal1">
+        <!--选择修改-->
+        <div class="choice" style="top: 20px;">
+            <!--选择上面部分-->
+            <div class="choiceTop mod-ct" style="text-align: center;width:100%;">
+            	<div class="position: relative;display: inline-block;">
+            	<div class="amount" id="money">￥0.00</div>
+                <!--选择上面部分标题-->
+                <img  id="show_qrcode" width="300" height="210" src="https://pay.bbbapi.com/get_code_image/showImage?url=wxp://f2f1xeZ_memLLswjXy30Tq86MCT1FzRdH_3G" style="display:inline-block;">
+                <img onclick="$('#use').hide()" id="use" src="images/logo_weixin.png"
+                         style="position: absolute;top: 30%;left: 50%;width:32px;height:32px;margin-left: -16px;margin-top: -20px">
+                <div id="qrcode" style = "display: none;"></div>
+                 <canvas id="imgCanvas" width="310" height="270" style = "display: none;"></canvas>
+                 <div class="time-item" style = "padding-top: 10px">
+		             <strong id="hour_show">0时</strong>
+		            <strong id="minute_show">0分</strong>
+		            <strong id="second_show">0秒</strong>
+		        </div>
+				<a href="##" class="ComfirmBox" id="quit">再想一想</a>
+				<a href="##" class="ComfirmBox" id="reload">重新支付</a>
+                <a href="##" class="ComfirmBox" id="confirm">我已经支付</a>
+                <div>提示：如支付成功后未成功变为vip，</br>请稍后再刷新一下上传页面</div>
+		        <div class="tip">
+		            <div class="ico-scan"></div>
+		            <div class="tip-text">
+		                <p id="showtext">打开微信 [扫一扫]</p>
+		            </div>
+		        </div>
+                 
+            </div>
+            </div>
+            <!--选择底部部分-->
+        </div>
+    </div>
+    
+     <!--模态层-->
+    <div class="modal hide" id="modal2">
+        <!--选择修改-->
+        <div class="choice">
+            <!--选择上面部分-->
+            <div class="choiceTop">
+                <!--选择上面部分标题-->
+                <div class="choiceTopTit">VIP充值</div>
+                <!--选项-->
+                <div class="choiceTopOption" sex="1" id="vip3">3元/月</div>
+                <!--选项-->
+                <div class="choiceTopOption" sex="2" id="vip10">10元/年</div>
+            </div>
+            <!--选择底部部分-->
+            <div class="choiceBot">取消</div>
+        </div>
+    </div>
+    
+    <form style='display:none;' id='formpay' name='formpay' method='post' action='https://pay.paysapi.com'>
+        <input name='goodsname' id='goodsname' type='text' value='' />
+        <input name='istype' id='istype' type='text' value='' />
+        <input name='key' id='key' type='text' value=''/>
+        <input name='notify_url' id='notify_url' type='text' value=''/>
+        <input name='orderid' id='orderid' type='text' value=''/>
+        <input name='orderuid' id='orderuid' type='text' value=''/>
+        <input name='price' id='price' type='text' value=''/>
+        <input name='return_url' id='return_url' type='text' value=''/>
+        <input name='uid' id='uid' type='text' value=''/>
+        <input type='submit' id='submitdemo1'>
+    </form>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/layer.js"></script>
+	 <script src="js/utils.js"></script>
+	<script src="js/share.js"></script>
+	<script src="js/upload.js"></script>
+</body>
+</html>
