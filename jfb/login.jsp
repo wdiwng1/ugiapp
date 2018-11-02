@@ -39,7 +39,7 @@
     </div>
 </div>
 </from>
-<div class="copyright">Copyright @2018 积分宝后台管理  技术支持武汉程李科技 QQ:197399622</div>
+<div class="copyright">Copyright @2018 积分宝后台管理 </div>
 <script type="text/javascript">
 var message = '${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}';
 </script>
